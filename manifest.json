@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+    "name": "Yemeksepeti Total",
+    "version": "1.0.0",
+    "description": "Yemeksepetin uygulamasında ne kadar harcama yaptığınızı gösterir",
+    "short_name": "Yemeksepeti Total",
+    "permissions": [
+        "tabs",
+        "webRequest",
+        "webRequestBlocking",
+        "https://www.yemeksepeti.com/"
+    ],
+    "browser_action": {
+        "default_icon": "icon.png"
+    },
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "content_scripts": [{
+        "matches": ["https://www.yemeksepeti.com/hesabim/onceki-siparislerim"],
+        "js": ["content-script.js"],
+        "run_at": "document_end"
+    }]
+}
